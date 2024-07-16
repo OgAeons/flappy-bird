@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import "../src/styles.css"
+import Bird from "./Bird"
 
 function Game() {
     const gameHeight = 600
@@ -12,9 +13,9 @@ function Game() {
 
     const [gameOver, setGameOver] = useState(false)
     const [score, setScore] = useState(0)
-    const [bird, setBird] = useState(300)
     const [pipeHeight, setPipeHeight] = useState(0)
     const [pipePos, setPipePos] = useState(gameWidth)
+
 
     return (
         <div className="game-container">
@@ -26,12 +27,13 @@ function Game() {
                     left: pipePos,
                     top: 0
                 }}></div>
-                <div className="bird" style={{
-                    height: birdHeight,
-                    width: birdWidth,
-                    top: bird,
-                    left: 100
-                }}></div>
+                <Bird 
+                    gameOver={gameOver}
+                    gameHeight={gameHeight}
+                    birdHeight={birdHeight}
+                    birdWidth={birdWidth}
+                    gravity={gravity}
+                />
                 <div className="pipe" styles={{
                     height: gameHeight - gap - pipeHeight,
                     width: pipeWidth,
