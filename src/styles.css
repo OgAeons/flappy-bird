@@ -43,3 +43,7 @@ h1, h3 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.rotated {
+    transform: rotate(180deg);
+}
