@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.game-container {
+    /* background-color: blue; */
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    height: 100%;
+    width: 25%;
+    background-image: url("../public/background-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bird {
+    height: 24px;
+    width: 34px;
+    background-image: url("../public/bird.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pipe {
+    height: 320px;
+    width: 52px;
+    position: absolute;
+    background-image: url("../public/pipe.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
