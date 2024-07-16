@@ -18,24 +18,26 @@ h1, h3 {
 }
 
 .game {
-    height: 100%;
-    width: 25%;
+    /* height: 100%;
+    width: 25%; */
+    position: fixed;
     background-image: url("../public/background-img.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bird {
-    height: 24px;
-    width: 34px;
+    /* height: 24px;
+    width: 34px; */
+    position: absolute;
     background-image: url("../public/bird.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .pipe {
-    height: 320px;
-    width: 52px;
+    /* height: 320px;
+    width: 52px; */
     position: absolute;
     background-image: url("../public/pipe.png");
     background-repeat: no-repeat;
