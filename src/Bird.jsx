@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from "react"
+import {gameHeight, birdHeight, birdWidth, gravity} from "./Const"
 
 function Bird(props) {
     const [bird, setBird] = useState(300)
      
     useEffect(() =>{
         let val
-        if (!(props.gameOver) && bird < (props.gameHeight) - (props.birdHeight)) {
+        if (!(props.gameOver) && bird < (gameHeight) - (birdHeight)) {
             val = setInterval(() => {
-                setBird(bird => bird + (props.gravity))
+                setBird(bird => bird + (gravity))
             }, 30)
         }
         return () => clearInterval(val)
@@ -15,8 +16,8 @@ function Bird(props) {
 
     return (
         <div className="bird" style={{
-            height: (props.birdHeight),
-            width: (props.birdWidth),
+            height: (birdHeight),
+            width: (birdWidth),
             top: bird,
             left: 100
         }}></div>

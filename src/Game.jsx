@@ -1,18 +1,10 @@
 import React, {useState, useEffect} from "react"
 import "../src/styles.css"
+import {gameHeight, gameWidth, birdHeight, birdWidth, pipeWidth, pipeSpeed, gap, gravity} from "./Const"
 import Bird from "./Bird"
 import Pipe from "./Pipe"
 
 function Game() {
-    const gameHeight = 600
-    const gameWidth = 350
-    const birdHeight = 24
-    const birdWidth = 34
-    const pipeWidth = 52
-    const pipeSpeed = 5
-    const gap = 200
-    const gravity = 5
-
     const [gameOver, setGameOver] = useState(false)
     const [score, setScore] = useState(0)
     const [pipeHeight, setPipeHeight] = useState(0)
@@ -42,21 +34,15 @@ function Game() {
                 <Pipe 
                     rotated={true}
                     height={pipeHeight}
-                    width={pipeWidth}
                     top={0}
                     left={pipePos}
                 />
                 <Bird 
                     gameOver={gameOver}
-                    gameHeight={gameHeight}
-                    birdHeight={birdHeight}
-                    birdWidth={birdWidth}
-                    gravity={gravity}
                 />
                 <Pipe 
                     rotated={false}
                     height={gameHeight - gap - pipeHeight}
-                    width={pipeWidth}
                     top={pipeHeight + gap}
                     left={pipePos}
                 />
