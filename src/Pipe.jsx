@@ -4,16 +4,16 @@ import {gameHeight, gameWidth, pipeWidth, pipeSpeed, gap} from "./Const"
 function Pipe(props) {
     useEffect(() => {
         let val
-        if (!props.gameOver && props.pipePos > -pipeWidth) {
+        if (!props.gameOver && props.pipePos > 0) {
             val = setInterval(() => {
                 props.setPipePos(pipePos => pipePos - pipeSpeed)
             }, 30)
             return () => clearInterval(val)
         } else {
-            props.setPipePos(gameWidth)
+            props.setPipePos(gameWidth - pipeWidth)
             props.setPipeHeight(Math.floor(Math.random() * (gameHeight - gap)))
             if (!props.gameOver) {
-                props.setScore(props.score +1)
+                props.setScore(props.score + 1)
             }
         }
     },[props.gameOver, props.pipePos])

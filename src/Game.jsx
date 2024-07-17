@@ -9,7 +9,7 @@ function Game() {
     const [bird, setBird] = useState(300)
     const [score, setScore] = useState(0)
     const [pipeHeight, setPipeHeight] = useState(0)
-    const [pipePos, setPipePos] = useState(gameWidth)
+    const [pipePos, setPipePos] = useState(gameWidth - pipeWidth)
 
     useEffect(() => {
         let topPipe = bird >=0 && bird < pipeHeight
