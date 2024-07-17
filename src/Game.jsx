@@ -6,9 +6,23 @@ import Pipe from "./Pipe"
 
 function Game() {
     const [gameOver, setGameOver] = useState(false)
+    const [bird, setBird] = useState(300)
     const [score, setScore] = useState(0)
     const [pipeHeight, setPipeHeight] = useState(0)
     const [pipePos, setPipePos] = useState(gameWidth)
+
+    useEffect(() => {
+        let topPipe = bird >=0 && bird < pipeHeight
+        let bottomPipe = 
+            bird <= gameHeight &&
+            bird >= gameHeight - (gameHeight - gap - pipeHeight) - birdHeight
+
+        if ( pipePos >= pipeWidth && pipePos <= pipeWidth + 80 && (topPipe || bottomPipe)) {
+            setGameOver(true)
+            setBird(300)
+            setScore(0)
+        }
+    }, [bird, pipeHeight, pipePos])
 
 
     return (
@@ -29,6 +43,8 @@ function Game() {
                 />
                 <Bird 
                     gameOver={gameOver}
+                    bird={bird}
+                    setBird={setBird}
                 />
                 <Pipe 
                     rotated={false}
