@@ -7,7 +7,7 @@ function Bird(props) {
         if (!props.gameOver && props.bird < gameHeight - birdHeight) {
             val = setInterval(() => {
                 props.setBird(bird => bird + (gravity))
-            }, 30)
+            }, 25)
         }
         return () => clearInterval(val)
     },[props.GameOver, props.bird])

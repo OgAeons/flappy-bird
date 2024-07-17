@@ -7,7 +7,7 @@ function Pipe(props) {
         if (!props.gameOver && props.pipePos > 0) {
             val = setInterval(() => {
                 props.setPipePos(pipePos => pipePos - pipeSpeed)
-            }, 30)
+            }, 25)
             return () => clearInterval(val)
         } else {
             props.setPipePos(gameWidth - pipeWidth)
