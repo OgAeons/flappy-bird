@@ -11,23 +11,6 @@ function Game() {
     const [pipePos, setPipePos] = useState(gameWidth)
 
 
-    useEffect(() => {
-        let val
-        if (!gameOver && pipePos > -pipeWidth) {
-            val = setInterval(() => {
-                setPipePos(pipePos => pipePos - pipeSpeed)
-            }, 30)
-            return () => clearInterval(val)
-        } else {
-            setPipePos(gameWidth)
-            setPipeHeight(Math.floor(Math.random() * (gameHeight - gap)))
-            if (!gameOver) {
-                setScore(score +1)
-            }
-        }
-    },[gameOver, pipePos])
-
-
     return (
         <div className="game-container">
             <div className="game" style={{height: gameHeight, width: gameWidth}}>
@@ -36,6 +19,13 @@ function Game() {
                     height={pipeHeight}
                     top={0}
                     left={pipePos}
+                    gameOver={gameOver}
+                    pipePos={pipePos}
+                    setPipePos={setPipePos}
+                    score={score}
+                    setScore={setScore}
+                    setPipeHeight={setPipeHeight}
+                    
                 />
                 <Bird 
                     gameOver={gameOver}
@@ -45,6 +35,12 @@ function Game() {
                     height={gameHeight - gap - pipeHeight}
                     top={pipeHeight + gap}
                     left={pipePos}
+                    gameOver={gameOver}
+                    pipePos={pipePos}
+                    setPipePos={setPipePos}
+                    setScore={setScore}
+                    setPipeHeight={setPipeHeight}
+                    score={score}
                 />
             </div>  
         </div>
