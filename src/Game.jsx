@@ -24,6 +24,21 @@ function Game() {
         }
     }, [bird, pipeHeight, pipePos])
 
+    useEffect(() => {
+        function handleKey(event) {
+            if (event.code === "Space") {
+                if (gameOver) setGameOver(true)
+                else if (bird < birdHeight) setBird(0)
+                else setBird(bird => bird - 60)
+            }
+        }
+        window.addEventListener("keydown", handleKey);
+
+        return () => {
+          window.removeEventListener("keydown", handleKey);
+        };
+    }, [gameOver, bird])
+
 
     return (
         <div className="game-container">
