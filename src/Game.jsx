@@ -4,10 +4,9 @@ import {gameHeight, gameWidth, birdHeight, birdWidth, pipeWidth, pipeSpeed, gap,
 import Bird from "./Bird"
 import Pipe from "./Pipe"
 
-function Game() {
+function Game(props) {
     const [gameOver, setGameOver] = useState(false)
     const [bird, setBird] = useState(300)
-    const [score, setScore] = useState(0)
     const [pipeHeight, setPipeHeight] = useState(0)
     const [pipePos, setPipePos] = useState(gameWidth - pipeWidth)
 
@@ -20,7 +19,7 @@ function Game() {
         if ( pipePos >= pipeWidth && pipePos <= pipeWidth + 80 && (topPipe || bottomPipe)) {
             setGameOver(true)
             setBird(300)
-            setScore(0)
+            props.setScore(0)
         }
     }, [bird, pipeHeight, pipePos])
 
@@ -55,8 +54,8 @@ function Game() {
                     gameOver={gameOver}
                     pipePos={pipePos}
                     setPipePos={setPipePos}
-                    score={score}
-                    setScore={setScore}
+                    score={props.score}
+                    setScore={props.setScore}
                     setPipeHeight={setPipeHeight}
                     
                 />
@@ -73,9 +72,9 @@ function Game() {
                     gameOver={gameOver}
                     pipePos={pipePos}
                     setPipePos={setPipePos}
-                    setScore={setScore}
+                    score={props.score}
+                    setScore={props.setScore}
                     setPipeHeight={setPipeHeight}
-                    score={score}
                 />
             </div>  
         </div>
