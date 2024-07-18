@@ -27,7 +27,10 @@ function Game() {
     useEffect(() => {
         function handleKey(event) {
             if (event.code === "Space") {
-                if (gameOver) setGameOver(true)
+                if (gameOver) {
+                    setGameOver(false)
+                    setBird(300+gravity)
+                }
                 else if (bird < birdHeight) setBird(0)
                 else setBird(bird => bird - 60)
             }
@@ -42,6 +45,7 @@ function Game() {
 
     return (
         <div className="game-container">
+            {gameOver ? <div className="game-over">GAMEOVER!! Press Space to Start</div> : null}
             <div className="game" style={{height: gameHeight, width: gameWidth}}>
                 <Pipe 
                     rotated={true}

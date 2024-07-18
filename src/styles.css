@@ -47,3 +47,13 @@ h1, h3 {
 .rotated {
     transform: rotate(180deg);
 }
+
+.game-over {
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    width: 300px;
+    text-align: center;
+    align-content: center;
+    z-index: 2;
+    border-radius: 5px;
+}
