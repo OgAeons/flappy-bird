@@ -25,7 +25,7 @@ function Game(props) {
 
     useEffect(() => {
         function handleKey(event) {
-            if (event.code === "Space") {
+            if (event.code === "Space" || event.type === "click") {
                 if (gameOver) {
                     setGameOver(false)
                     setBird(300+gravity)
@@ -35,16 +35,18 @@ function Game(props) {
             }
         }
         window.addEventListener("keydown", handleKey);
+        window.addEventListener("click", handleKey);
 
         return () => {
           window.removeEventListener("keydown", handleKey);
+          window.removeEventListener("click", handleKey);
         };
     }, [gameOver, bird])
 
 
     return (
         <div className="game-container">
-            {gameOver ? <div className="game-over">GAMEOVER!! Press Space to Start</div> : null}
+            {gameOver ? <div className="game-over">GAMEOVER!! Press Space or click to Start</div> : null}
             <div className="game" style={{height: gameHeight, width: gameWidth}}>
                 <Pipe 
                     rotated={true}
